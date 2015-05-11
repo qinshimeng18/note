@@ -1,0 +1,43 @@
+github
+@@@
+git pull/fetch 
+origin and master all saved in local pc(config id)
+
+git fetch origin master
+	update origin(remote name in pc ) only
+git pull origin (branch) master
+	update local repository  only
+
+SO:fetch+merge(both)>pull
+@@@
+git atatus
+git diff
+git branch
+git config --list
+@@@
+github account 
+ssh
+git init
+git add . //suoyin
+git commit -m 'zhushi'//tian jia dao ben di cang ku
+git remote add origin url
+git push origin master||git pull origin master/develop
+
+@@@
+FORK
+Step 1: Fork the "Spoon-Knife" repository
+git clone url(own)
+add-commit-remote(origin)-push
+update:
+git remote  add upstream url(others)
+git fetch upstream(name of url)
+git merge upstream/master
+@@@
+CREATE NEW branch
+
+git branch develop
+git checkout develop //qie huan fen zhi
+==git checkout -b develop
+						||git branch -D develop
+git branch -m oldname newname
+git merge develop

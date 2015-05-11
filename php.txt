@@ -1,0 +1,170 @@
+索引数组
+$cars={"a",'b','c'};
+echo $cars[0];
+echo "<br>";
+echo count($cars) //number of elements;
+关联数组
+关联数组是使用您分配给数组的指定键的数组。
+$age={"peter"=>"35","bob"=>"24"}
+$age['peter']="35";
+$age['bob']="24"
+echo "Peter is " . $age['Peter'] . " years old.";
+foreach($age as $x=>$x_value){
+	echo $x." is ".$x_value."years old ";
+}
+排序:
+sort() - 以升序对数组排序
+rsort() - 以降序对数组排序
+asort() - 根据值，以升序对关联数组进行排序
+ksort() - 根据键，以升序对关联数组进行排序
+arsort() - 根据值，以降序对关联数组进行排序
+krsort() - 根据键，以降序对关联数组进行排序
+
+<?php
+$cars=array("Volvo","BMW","SAAB");
+sort($cars);
+?>
+这些超全局变量是：
+$GLOBALS
+$_SERVER
+$_REQUEST
+$_POST
+$_GET
+$_FILES
+$_ENV
+$_COOKIE
+$_SESSION
+表单的处理
+		<html>
+		<body>
+
+		<form action="welcome.php" method="post">
+		Name: <input type="text" name="name"><br>
+		E-mail: <input type="text" name="email"><br>
+		<input type="submit">
+		</form>
+
+		</body>
+		</html>
+		
+		Welcome <?php echo $_POST["name"]; ?><br>
+		Your email address is: <?php echo $_POST["email"]; ?>
+		Welcome <?php echo $_GET["name"]; ?><br>
+		Your email address is: <?php echo $_GET["email"]; ?>
+
+安全：
+在用户提交该表单时，我们还要做两件事：
+（通过 PHP trim() 函数）去除用户输入数据中不必要的字符（多余的空格、制表符、换行）
+（通过 PHP stripslashes() 函数）删除用户输入数据中的反斜杠（\）
+htmlspecialchars() 函数把特殊字符转换为 HTML 实体。这意味着 《 和 > 之类的 HTML 字符会被替换为 &lt; 和 &gt; 。这样可防止攻击者通过在表单中注入 HTML 或 JavaScript 代码（跨站点脚本攻击）对代码进行利用。
+			<?php
+			// 定义变量并设置为空值
+			$name = $email = $gender = $comment = $website = "";
+
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			  $name = test_input($_POST["name"]);
+			  $email = test_input($_POST["email"]);
+			  $website = test_input($_POST["website"]);
+			  $comment = test_input($_POST["comment"]);
+			  $gender = test_input($_POST["gender"]);
+			}
+
+			function test_input($data) {
+			  $data = trim($data);
+			  $data = stripslashes($data);
+			  $data = htmlspecialchars($data);
+			  return $data;
+			}
+			?>
+
+<!DOCTYPE HTML> 
+<html>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body> 
+
+<?php
+// 定义变量并设置为空值
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   if (empty($_POST["name"])) {
+     $nameErr = "姓名是必填的";
+   } else {
+     $name = test_input($_POST["name"]);
+   }
+   
+   if (empty($_POST["email"])) {
+     $emailErr = "电邮是必填的";
+   } else {
+     $email = test_input($_POST["email"]);
+   }
+     
+   if (empty($_POST["website"])) {
+     $website = "";
+   } else {
+     $website = test_input($_POST["website"]);
+   }
+
+   if (empty($_POST["comment"])) {
+     $comment = "";
+   } else {
+     $comment = test_input($_POST["comment"]);
+   }
+
+   if (empty($_POST["gender"])) {
+     $genderErr = "性别是必选的";
+   } else {
+     $gender = test_input($_POST["gender"]);
+   }
+}
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+<h2>PHP 验证实例</h2>
+<p><span class="error">* 必需的字段</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+   姓名：<input type="text" name="name">
+   <span class="error">* <?php echo $nameErr;?></span>
+   <br><br>
+   电邮：<input type="text" name="email">
+   <span class="error">* <?php echo $emailErr;?></span>
+   <br><br>
+   网址：<input type="text" name="website">
+   <span class="error"><?php echo $websiteErr;?></span>
+   <br><br>
+   评论：<textarea name="comment" rows="5" cols="40"></textarea>
+   <br><br>
+   性别：
+   <input type="radio" name="gender" value="female">女性
+   <input type="radio" name="gender" value="male">男性
+   <span class="error">* <?php echo $genderErr;?></span>
+   <br><br>
+   <input type="submit" name="submit" value="提交"> 
+</form>
+
+<?php
+echo "<h2>您的输入：</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+外部引用js
+	<body>
+
+	<script src="/js/example_externaljs.js">
+	</script>
+
+	<p>
+	实际的脚本位于名为 "xxx.js" 的外部脚本中。
+	</p>
+
+var person={fname:"John",lname:"Doe",age:25};
+
+	for (x in person)
+	  {
+	  txt=txt + person[x];
+	  }
+
+
+	 for (i=0;i<=10;i++)
+	 {
+	 if (i==3) continue;
+	  x=x + "The number is " + i + "<br>";
+	  }
+
+  continue 语句（带有或不带标签引用）只能用在循环中。
+break 语句（不带标签引用），只能用在循环或 switch 中。
+通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：
+	list:
+	{
+	document.write(cars[0] + "<br>");
+	document.write(cars[1] + "<br>");
+	document.write(cars[2] + "<br>");
+	break list;
+	document.write(cars[3] + "<br>");
+	document.write(cars[4] + "<br>");
+	document.write(cars[5] + "<br>");
+	}
+	//事件
+
+<h1 onclick="this.innerHTML='谢谢!'">请点击该文本</h1>
+
+
+<input type="button" value="隐藏文本" onclick="document.getElementById('p1').style.visibility='hidden'" />
+<input type="button" value="显示文本" onclick="document.getElementById('p1').style.visibility='visible'" />
+
+
+	<script>
+	function changetext(id)
+	{
+	id.innerHTML="谢谢!";
+	}
+	</script>
+	</head>
+	<body>
+
+	<h1 onclick="changetext(this)">请点击该文本</h
+
+	<body onload="checkCookies()">  //onunload
+	//悬停
+
+	onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。
+
+
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:green;width:120px;height:20px;padding:40px;color:#ffffff;">把鼠标移到上面</div>
+
+	<script>
+	function mOver(obj)
+	{
+	obj.innerHTML="谢谢"
+	}
+
+	function mOut(obj)
+	{
+	obj.innerHTML="把鼠标移到上面"
+	}
+	</script>
+
+onmousedown、onmouseup 以及 onclick 事件
+onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件。
+
+
+构建对象 
+	person={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"};
+	 
+	 <script> 
+	function person(firstname,lastname,age,eyecolor)
+	{
+	this.firstname=firstname;
+	this.lastname=lastname;
+	this.age=age;
+	this.eyecolor=eyecolor;
+	}
+
+	myFather=new person("Bill","Gates",56,"blue");
+
+	document.write(myFather.firstname + " is " + myFather.age + " years old.");
+	</script>          
+
+
+	var y=123e5;    // 12300000
+	var z=123e-5;   // 0.00123
+
+如果前缀为 0，则 JavaScript 会把数值常量解释为八进制数，如果前缀为 0 和 "x"，则解释为十六进制数。
+实例
+var y=0377;
+var z=0xFF;
+
+
+
+document.write(txt.length)
+document.write("<p>Strike: " + txt.strike() + "</p>")//Strike: Hello World!
+
+document.write("<p>Link: " + txt.link("http://www.w3school.com.cn") + "</p>")
+indexOf() 方法
+如何使用 indexOf() 来定位字符串中某一个指定的字符首次出现的位置。
+document.write(str.match("World") + "<br />")
+match() 方法
+如何使用 match() 来查找字符串中特定的字符，并且如果找到的话，则返回这个字符。
+
+如何使用 replace() 方法在字符串中用某些字符替换另一些字符。
+var str="Visit Microsoft!"
+document.write(str.replace(/Microsoft/,"W3School"))
+
+
+JavaScript Date（日期）对象 实例
+返回当日的日期和时间
+如何使用 Date() 方法获得当日的日期。
+getTime()
+	var d=new Date();
+	document.write("从1970.1.1到今天的毫秒数"+d.getTime());
+getTime() 返回从 1970 年 1 月 1 日至今的毫秒数。
+setsFullYear()
+	var d=newsss Date();
+	d.setFullYear(1995.4.9);
+	document.write(d);
+
+	表示月份的参数介于 0 到 11 之间。也就是说，如果希望把月设置为 8 月，则参数应该是 7。
+	在下面的例子中，我们将日期对象设置为 5 天后的日期：
+	var myDate=new Date()
+	myDate.setDate(myDate.getDate()+5)
+	注意：如果增加天数会改变月份或者年份，那么日期对象会自动完成这种转换。
+
+toUTCString()
+	var d=new Date();
+	document.write(d.toUTCString());
+如何使用 toUTCString() 将当日的日期（根据 UTC）转换为字符串。
+getDay()
+	var d=new Date();
+	var weekday=new Array(7);
+	weekday[0]="星期日"
+	weekday[1]="星期一"
+	weekday[2]="星期二"
+	weekday[3]="星期三"
+	weekday[4]="星期四"
+	weekday[5]="星期五"
+	weekday[6]="星期六"
+	document.write("今天是"+weekday(d.getDay()));
+如何使用 getDay() 和数组来显示星期，而不仅仅是数字。
+显示一个钟表
+如何在网页上显示一个钟表。
+<script type="text/javascript">
+function startTime()
+{
+var today=new Date()
+var h=today.getHours()
+var m=today.getMinutes()
+var s=today.getSeconds()
+// add a zero in front of numbers<10
+m=checkTime(m)
+s=checkTime(s)
+document.getElementById('txt').innerHTML=h+":"+m+":"+s
+t=setTimeout('startTime()',500)
+}
+
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<div id="txt"></div>
+
+
+数组：
+有两种向数组赋值的方法（你可以添加任意多的值，就像你可以定义你需要的任意多的变量一样）。
+var mycars=new Array()
+mycars[0]="Saab"
+mycars[1]="Volvo"
+mycars[2]="BMW"
+
+
+var mycars=new Array("Saab","Volvo","BMW")
+遍历
+合并数组
+	var arr1=new Array(3);
+	var arr2=new Array(3);
+	document.write(arr1.concat(arr2));
+
+jion()方法 
+document.write(arr.join());//	George,John,Thomas
+document.write(arr.join("."));//George.John.Thomas.
+sort（）排序
+document.write(arr.sort())
+document.write(arr.sort(sortNumber))//根据数值大小
+document.write(arr.sort())//根据首位的数字大小
+
+逻辑
+	var b1=new Boolean( 0)
+	var b2=new Boolean(1)
+	var b3=new Boolean("")
+	var b4=new Boolean(null)
+	var b5=new Boolean(NaN)
+	var b6=new Boolean("false")
+
+	0 是逻辑的 false
+	1 是逻辑的 true
+	空字符串是逻辑的 false
+	null 是逻辑的 false
+	NaN 是逻辑的 false
+	字符串 'false' 是逻辑的 true（即使当自变量为字符串
+var myBoolean=new Boolean();
+	如果逻辑对象无初始值或者其值为 0、-0、null、""、false、undefined 或者 NaN，那么对象的值为 false。否则，其值为 true（即使当自变量为字符串 "false" 时）！
+
+	算数
+
+	round()
+	Math.round（）
+	random()
+	如何使用 random() 来返回 0 到 1 之间的随机数。
+	max()
+	如何使用 max() 来返回两个给定的数中的较大的数。（在 ECMASCript v3 之前，该方法只有两个参数。）
+	min()
+	如何使用 min() 来返回两个给定的数中的较小的数。（在 ECMASCript v3 之前，该方法只有两个参数。）
+
+RegExp
+	
+	RegExp 对象用于存储检索模式。
+	通过 new 关键词来定义 RegExp 对象。以下代码定义了名为 patt1 的 RegExp 对象，其模式是 "e"：
+	var patt1=new RegExp("e");
+	当您使用该 RegExp 对象在一个字符串中检索时，将寻找的是字符 "e"。
+
+	patt1.test("要检索的字符串")；//返回true或false
+	patt1.exec("串")//exec() 方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。
+	compile()
+	
+	compile() 方法用于改变 RegExp。
+	compile() 既可以改变检索模式，也可以添加或删除第二个参数。
+
+
+JavaScript Window - 浏览器对象模型(BOM)
+
+
+	获取浏览器的高度和宽度
+	var w=window.innerWidth
+	|| document.documentElement.clientWidth
+	|| document.body.clientWidth;
+
+	var h=window.innerHeight
+	|| document.documentElement.clientHeight
+	|| document.body.clientHeight;
+	其他 Window 方法
+	一些其他方法：
+	window.open() - 打开新窗口
+	window.close() - 关闭当前窗口
+	window.moveTo() - 移动当前窗口
+	window.resizeTo() - 调整当前窗口的尺寸
+	screen.availWidth 属性返回访问者屏幕的宽度，以像素计，减去界面特性，比如窗口任务栏。
+	screen.availHeight  属性返回访问者屏幕的高度，以像素计，减去界面特性，比如窗口任务栏。
+
+	location.hostname 返回 web 主机的域名
+	location.pathname 返回当前页面的路径和文件名
+	location.port 返回 web 主机的端口 （80 或 443）
+	location.protocol 返回所使用的 web 协议（http:// 或 https://）	
+	document.write(location.href);
+	<script>
+	function newDoc()
+	 {
+	 window.location.assign("http://www.w3school.com.cn")//加载新的文档
+	 }
+	</script>
+	</head>
+	<body>
+
+	<input type="button" value="加载新文档" onclick="newDoc()">
+
+	history.back() - 与在浏览器点击后退按钮相同
+	history.forward() - 与在浏览器中点击按钮向前相同
+
+
+警告框  alert("")
+
+确认框  
+	function show_confirm()
+	{
+		var c=confirm("message");
+		if (c==true){
+			alert("确认");
+		}else{
+			alert("取消")
+		}
+	}
+提示框
+ 	function show_prompt()
+ 	{
+ 		 var name =prompt("please input your name ","默认名字");
+ 		 if(name!=null&&name!="")
+ 		 {
+ 		 	document.write("hellow "+name);
+ 		 }
+ 	}
+
+
+
+ Timing 计时
+	function timedMsg()
+	{
+	var t=setTimeout("alert('five seconds'),5000");//5秒之后执行程序
+
+	}
+
+无限循环---计时
+	<script type="text/javascript">
+	var c=0
+	var t
+	function timedCount()
+	{
+	document.getElementById('txt').value=c
+	c=c+1
+	t=setTimeout("timedCount()",1000)
+	}
+	</script>
+
+	<form>
+	<input type="button" value="开始计时！" onClick="timedCount()">
+	<input type="text" id="txt">
+	</form>
+
+	<p>请点击上面的按钮。输入框会从 0 开始一直进行计时。</p>
+
+
+	时钟
+	<script>
+	function clock(){
+		var today=new Date();
+		var h=today.getHours();
+		var m=today.getMinutes();
+		var s=today.getSeconds();
+		h=check(h);
+		m=check(m);
+		s=check(s);
+		x=document.getElementById("clock").innerHTML=h+":"+m+":"+s;
+		setTimeout("clock()",1000)
+	}
+	function check(i){
+		if(i<10)
+			i="0"+i;
+		return i;	
+	}
+	</script>		
+	有计时功能的
+
+	<script type="text/javascript">
+	var c=0
+	var t
+	function timedCount()
+	{
+	document.getElementById('txt').value=c
+	c=c+1
+	t=setTimeout("timedCount()",1000)
+	}
+
+	function stopCount()
+	{
+	c=0;
+	setTimeout("document.getElementById('txt').value=0",0);
+	clearTimeout(t);
+	}
+	</script>
+
+	<form>
+	<input type="button" value="开始计时！" onClick="timedCount()">
+	<input type="text" id="txt">
+	<input type="button" value="停止计时！" onClick="stopCount()">
+	</form>
+
+
+
+setTimeout()
+未来的某时执行代码
+clearTimeout()
+取消setTimeout()
+
+
+
+jquery
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<script src="/jquery/jquery-1.11.1.min.js"></script>
+	<script>
+	function myFunction()
+	{
+	$("#h01").attr("style","color:red").html("Hello jQuery")
+	}
+	$(document).ready(myFunction);
+	</script>
+	</head>
+
+	<body>
+	<h1 id="h01"></h1>
+	</body>
+	</html>
+
+
+
+随机链接
+
+	<script type="text/javascript">
+	var r=Math.random()
+	if (r>0.5) 
+	{
+	document.write("<a href='http://www.w3school.com.cn'>学习 Web 开发！</a>")
+	}
+	else
+	{
+	document.write("<a href='http://www.microsoft.com'>访问微软！</a>")
+	}
+	</script>
+
+
+
+
+
+
+
+
+json
+
+
+	JSON 语法是 JavaScript 对象表示法语法的子集。
+	数据在名称/值对中
+	数据由逗号分隔
+	花括号保存对象
+	方括号保存数组
+
+	var josn_Object={ "firstName":"John" , 
+	"lastName":"Doe" }
+
+	JSON 数组在方括号中书写：
+	数组可包含多个对象：
+	var employees = [
+	{ "firstName":"Bill" , "lastName":"Gates" },
+	{ "firstName":"George" , "lastName":"Bush" },
+	{ "firstName":"Thomas" , "lastName": "Carter" }
+	];
+	json访问
+	employees[0].lastName;
