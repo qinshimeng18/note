@@ -1,0 +1,9 @@
+《白帽子讲web安全》
+
+第二章：浏览器安全
+ 
+2.1同源策略	不同origin的对象不能相互干扰：ip，port，子域名，协议https。|限制：DOM Cookie XMLHttpRequest 插件
+<script><img><iframe><link>都可以跨域加载资源
+浏览器沙箱 chrome等浏览器多进程，渲染插件扩展等相互分离 通过IPC channel 通信。
+sandbox 通过封装api进行交换数据 考虑对文件系统内存数据库网络登的请求
+恶意网址  挂马网址 和 钓鱼网址  有黑名单push  google safebrowsing API + EVSSL证书

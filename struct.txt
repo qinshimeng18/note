@@ -1,0 +1,56 @@
+format = "!HH%ds" % len(data)
+struct中支持的格式如下表：
+
+Format	C Type	Python	字节数
+x	pad byte	no value	1
+c	char	string of length 1	1
+b	signed char	integer	1
+B	unsigned char	integer	1
+?	_Bool	bool	1
+h	short	integer	2
+H	unsigned short	integer	2
+i	int	integer	4
+I	unsigned int	integer or long	4
+l	long	integer	4
+L	unsigned long	long	4
+q	long long	long	8
+Q	unsigned long long	long	8
+f	float	float	4
+d	double	float	8
+s	char[]	string	1
+p	char[]	string	1
+P	void *	long
+如果是由多个数据构成的，可以这样：
+
+a='hello'
+
+b='world!'
+
+c=2
+
+d=45.123
+
+bytes=struct.pack('5s6sif',a,b,c,d)
+
+此时的bytes就是二进制形式的数据了，可以直接写入文件比如 binfile.write(bytes)
+
+然后，当我们需要时可以再读出来，bytes=binfile.read()
+
+再通过struct.unpack()解码成python变量
+a,b,c,d=struct.unpack('5s6sif',bytes)
+
+'5s6sif'这个叫做fmt，就是格式化字符串，由数字加字符构成，5s表示占5个字符的字符串，2i，表示2个整数等等，下面是可用的字符及类型，ctype表示可以与python中的类型一一对应。
+
+注意：二进制文件处理时会碰到的问题
+
+我们使用处理二进制文件时，需要用如下方法
+
+binfile=open(filepath,'rb')    读二进制文件
+
+binfile=open(filepath,'wb')    写二进制文件
+
+那么和binfile=open(filepath,'r')的结果到底有何不同呢？
+
+不同之处有两个地方：
+
+第一，使用'r'的时候如果碰到'0x1A'，就会视为文件结束，这就是EOF。使用'rb'则不存在这个问题。即，如果你用二进制写入再用文本读出的话，如果其中存在'0X1A'，就只会读出文件的一部分。使用'rb'的时候会一直读到文件末尾。

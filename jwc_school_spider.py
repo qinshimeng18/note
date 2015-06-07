@@ -5,7 +5,7 @@ import re
 import threading
 import time
 
-numstart=71113437
+numstart=213130000
 numend=213131150
 url ="http://xk.urp.seu.edu.cn/jw_service/service/stuCurriculum.action"
 name=re.compile('姓名:([^<]+)')
@@ -67,8 +67,8 @@ def print_time(threadName):
 
 
 
-thread1 = myThread(1, "Thread-1", 71113310,71113337)
-thread2 = myThread(2, "Thread-2", 71113210,71113237)
+thread1 = myThread(1, "Thread-1", 213131140,213131145)
+thread2 = myThread(2, "Thread-2", 213131145,213131150)
 thread1.start()
 thread2.start()
 print "Exiting Main Thread"

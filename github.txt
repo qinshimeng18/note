@@ -8,7 +8,7 @@ git fetch origin master
 git pull origin (branch) master
 	update local repository  only
 
-SO:fetch+merge(both)>pull
+SO:fetch+merge(both)->pull
 @@@
 git atatus
 git diff
