@@ -1,4 +1,67 @@
-# # -*- coding: utf-8 -*- 
+# # -*- coding: utf-8 -*-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from sys import getrefcount
+
+# a='66'
+# x=y=a
+# print id(x),id(y),id(a)
+def s():
+    '''this is a doc'''
+    '''fun'''
+    print 's'
+    # del x
+    # del y
+    # a=2
+    # print id(1)
+    # (x,y)=(1,2)
+    # print id(x),id(y)
+
+# s()
+# del x,y,a
+# ss='18d'
+# aa='18d'
+# print hex(id(ss)),hex(id(aa))
+# print ss is aa
+# # print s.__doc__
+# a = [1, 2, 3]
+# print(getrefcount(a))
+
+# b = a
+# print(getrefcount(b))
+# class from_obj(object):
+#     def __init__(self, to_obj):
+#         self.to_obj = to_obj
+
+# b = [1,2,3]
+# a = from_obj(b)
+# print(id(a.to_obj))
+# print(id(b))
+
+
+
+
+
+
+
+
+
+
+
+
+
 # s1='|abc|abcde|fghabcdhishuabcuidhu'
 # s=s1.split('|')
 # num = 0
@@ -7,17 +70,17 @@
 # for i in s:
 # 	print s[num]+'~~~~~'+i+'~~~~'+str(num)
 # 	num=num+1
-h="0a0b0c0d0e0f0g0h0i"
-print h
-s='111'
-s=h
-j=''
-n=len(s)
-print n
-for i in range(len(s)/2):
-	j=j+s[n-2*i-2]+s[n-2*i-1]
-	
-print j
+# h="0a0b0c0d0e0f0g0h0i"
+# print h
+# s='111'
+# s=h
+# j=''
+# n=len(s)
+# print n
+# for i in range(len(s)/2):
+#     j=j+s[n-2*i-2]+s[n-2*i-1]
+
+# print j
 # print s[2]
 # print s[0:2]
 # t="1d010000"
@@ -89,3 +152,8 @@ print j
 # print "unpack",c
 # print type(c)
 # f.close()
+
+if __name__ == '__main__':
+    main()
+
+
